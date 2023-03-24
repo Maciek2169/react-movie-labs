@@ -26,7 +26,8 @@ const sampleData = {
       name: "Action",
     },
   ],
-  homepage: "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
+  homepage:
+    "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
   id: 181808,
   imdb_id: "tt2527336",
   original_language: "en",

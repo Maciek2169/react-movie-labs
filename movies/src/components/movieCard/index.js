@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
-import { Link } from "react-router-dom";
+import React, { useContext}from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -11,31 +9,29 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
-import img from "../../images/film-poster-placeholder.png";
-import Avatar from "@mui/material/Avatar";
+import img from '../../images/film-poster-placeholder.png'
+import Avatar from '@mui/material/Avatar';
+import { Link } from "react-router-dom";
+import { MoviesContext } from "../../contexts/moviesContext";
+
+
 
 export default function MovieCard({ movie, action }) {
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
   } else {
-    movie.favorite = false;
+    movie.favorite = false
   }
-
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
+            <CardHeader
         avatar={
           movie.favorite ? (
-            <Avatar sx={{ backgroundColor: "red" }}>
+            <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
           ) : null
@@ -47,7 +43,14 @@ export default function MovieCard({ movie, action }) {
         }
       />
 
-      <CardMedia sx={{ height: 500 }} image={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : img} />
+      <CardMedia
+        sx={{ height: 500 }}
+        image={
+          movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+            : img
+        }
+      />
       <CardContent>
         <Grid container>
           <Grid item xs={6}>
